@@ -1,22 +1,26 @@
 <main>
-  <div style="text-align:center">
-  <h1>
-    Welcome to hazgepszerv!
-  </h1>
-  <form (submit)="loginUser($event)">
-    <div class="input">
-      <label>E-mail cím</label>
-      <input type="text">
-    </div>
-    <div class="input">
-      <label>Jelszó</label>
-      <input type="password">
-    </div>
-    <div class="button">
-      <button type="button" value="Login" [routerLink]="['../home']">
-        <span>Belépés</span>
-      </button>
-    </div>
-  </form>
-</div>
+  <div>
+    <h1>Háztartási Gépszerviz</h1>
+    <form class="login-form">
+      <mat-form-field class="login-full-width">
+        <input matInput #email placeholder="Email" [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Adj meg érvényes e-mail címet
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email megadása <strong>kötelező</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="login-full-width">
+        <input matInput #password placeholder="Jelszó" [formControl]="passwordFormControl" type="password">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Jelszó megadása <strong>kötelező</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button class="login-full-width" mat-raised-button color="primary">Belépés</button>
+
+    </form>
+  </div>
 </main>
