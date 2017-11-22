@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AF} from '../providers/af';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +24,15 @@ import { MatButtonModule,
   MatSlideToggleModule,
   MatTabsModule,
   MatToolbarModule } from '@angular/material';
+
+export const config = {
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
+};
 
 @NgModule({
   declarations: [
@@ -46,9 +58,12 @@ import { MatButtonModule,
     MatSidenavModule,
     MatSlideToggleModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AF],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

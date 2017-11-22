@@ -1,7 +1,7 @@
 <main>
   <div>
     <h1>Háztartási Gépszerviz</h1>
-    <form class="login-form">
+    <form class="login-form" (submit)="loginWithEmail(email.value, password.value)">
       <mat-form-field class="login-full-width">
         <input matInput #email placeholder="Email" [formControl]="emailFormControl">
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -19,7 +19,7 @@
         </mat-error>
       </mat-form-field>
 
-      <button class="login-full-width" mat-raised-button color="primary">Belépés</button>
+      <button class="login-full-width" mat-raised-button color="primary" type="submit">Belépés</button>
 
     </form>
   </div>
