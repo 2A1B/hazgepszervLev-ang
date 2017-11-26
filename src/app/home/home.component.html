@@ -1,3 +1,36 @@
-<p>
-  home works!
-</p>
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Háztartási Gépszerviz</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill fxLayout="row">
+    <mat-sidenav mode="side" opened #sidenav>
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['/home']" [class.selected]="'/home' === selectedLink" (click)="onSelect('/home')">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <h4 mat-line>Kezdőlap</h4>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['jobreports']}}]" [class.selected]="'/home' === selectedLink" (click)="onSelect('/home')">
+          <mat-icon mat-list-icon>class</mat-icon>
+          <h4 mat-line>Hibajegyek</h4>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/calendar']" [class.selected]="'/home' === selectedLink" (click)="onSelect('/home')">
+          <mat-icon mat-list-icon>today</mat-icon>
+          <h4 mat-line>Naptár</h4>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+        <router-outlet name="side"></router-outlet>
+    </div>
+  </mat-sidenav-container>
+
+  <mat-menu #themeMenu x-position="before">
+    <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+  </mat-menu>
+</div>
