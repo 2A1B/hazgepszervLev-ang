@@ -30,12 +30,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
-  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
-  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
-  projectId: 'hazgepszerv-f2543',
-  storageBucket: 'hazgepszerv-f2543.appspot.com',
-  messagingSenderId: '532373037664'
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 };
 
 @NgModule({
