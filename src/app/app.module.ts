@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AF } from '../providers/af';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -25,7 +26,8 @@ import { MatButtonModule,
   MatSidenavModule,
   MatSlideToggleModule,
   MatTabsModule,
-  MatToolbarModule } from '@angular/material';
+  MatToolbarModule,
+  MatPaginatorModule } from '@angular/material';
 
 export const config = {
   apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
@@ -62,9 +64,11 @@ export const config = {
     MatSlideToggleModule,
     MatTabsModule,
     MatToolbarModule,
+    MatPaginatorModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [AF],
   bootstrap: [AppComponent]
