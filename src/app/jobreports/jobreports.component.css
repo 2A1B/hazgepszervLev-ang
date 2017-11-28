@@ -1,0 +1,7 @@
+/deep/ .mat-tab-label {
+  width: 50%;
+}
+
+/deep/ .mat-tab-group {
+  min-width: 800px;
+}
