@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { JobreportsComponent } from './jobreports/jobreports.component';
+import { ServicesheetComponent } from './servicesheet/servicesheet.component';
 
 import { MatButtonModule,
   MatCardModule,
@@ -43,7 +44,8 @@ export const config = {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    JobreportsComponent
+    JobreportsComponent,
+    ServicesheetComponent
   ],
   imports: [
     BrowserModule,

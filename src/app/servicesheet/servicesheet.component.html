@@ -1,0 +1,24 @@
+<mat-card fxFlexFill fxFlex="100" mat-stretch-tabs>
+  <mat-card-title style="color: blue">Munkalapok</mat-card-title>
+  <mat-list>
+    <mat-list-item *ngFor="let item of reports | async ">
+      <img *ngIf="item.job_title=='helyszíni'" mat-list-avatar src="/assets/images/home_service.png" alt="Desc 2">
+      <img *ngIf="item.job_title=='más'" mat-list-avatar src="/assets/images/swiss_army_knife.png" alt="Desc 2">
+      <img *ngIf="item.job_title=='felmérés'" mat-list-avatar src="/assets/images/in_transit.png" alt="Desc 2">
+      <img *ngIf="item.job_title=='szerviz'" mat-list-avatar src="/assets/images/screwdriver.png" alt="Desc 2">
+      <h4 mat-line>{{ item.customer_name }}</h4>
+      <p mat-line>{{ item.customer_address }}</p>
+      <p mat-line>{{ item.customer_phone }}</p>
+      <div style="width: 65px">
+        <button mat-icon-button style="padding-left: 40px" (click)="seePDF(item.uuid)">
+          <mat-icon style="color: blue">picture_as_pdf</mat-icon>
+        </button>
+      </div>
+      <div style="width: 65px">
+        <button mat-icon-button style="padding-left: 40px" (click)="seeQRcode(item.uuid)">
+          <mat-icon style="color: blue">center_focus_weak</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
