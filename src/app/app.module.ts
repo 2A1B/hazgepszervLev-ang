@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AF } from '../providers/af';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { JobreportsComponent } from './jobreports/jobreports.component';
 import { ServicesheetComponent } from './servicesheet/servicesheet.component';
+import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.component';
 
 import { MatButtonModule,
   MatCardModule,
@@ -45,7 +47,8 @@ export const config = {
     LoginComponent,
     HomeComponent,
     JobreportsComponent,
-    ServicesheetComponent
+    ServicesheetComponent,
+    ServiceSheetPdfComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ export const config = {
     FlexLayoutModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    PdfViewerModule
   ],
   providers: [AF],
   bootstrap: [AppComponent]
