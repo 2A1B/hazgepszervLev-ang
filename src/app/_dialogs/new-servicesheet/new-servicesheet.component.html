@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Új munkalap</h1>
+<form class="example-form" (submit)="newServiceSheet(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, munka.value, elvegzettmunka.value, anyag.value, ar.value)">
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelneve>
+      <mat-placeholder>
+        <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelcime>
+      <mat-placeholder>
+        <mat-icon class="icon-color">person_pin_circle</mat-icon> Ügyfél címe
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <span matPrefix>+36 &nbsp;</span>
+      <input type="tel" matInput #ugyfelszama>
+      <mat-placeholder>
+        <mat-icon class="icon-color">local_phone</mat-icon> Ügyfél telefonszáma
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #munka>
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Munka megnevezése
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #elvegzettmunka>
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Elvégzett munka
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #anyag>
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Felhasznált anyag
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #ar>
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Javítás ára
+      </mat-placeholder>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button color="primary" type="submit" (click)="dialog.close()">
+      Hozzáadás
+    </button>
+  </div>
+</form>
