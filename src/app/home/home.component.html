@@ -29,6 +29,9 @@
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
+      <span class="app-action">
+      <button mat-fab (click)="openNewJobreportDialog()"><mat-icon>check circle</mat-icon></button>
+    </span>
     <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
         <router-outlet name="side"></router-outlet>
     </div>

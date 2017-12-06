@@ -47,6 +47,13 @@ mat-sidenav {
   bottom: 16px;
 }
 
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 /deep/ .mat-list-item-content {
   height: auto !important;
 }

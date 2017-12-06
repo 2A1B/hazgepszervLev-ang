@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {JobReport} from '../_models/JobReport';
-import {PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-jobreports',
@@ -12,16 +11,17 @@ import {PageEvent} from '@angular/material';
 export class JobreportsComponent implements OnInit {
   openedReports: Observable<any[]>;
   closedReports: Observable<any[]>;
+  itemsRef: AngularFireList<any>;
   constructor(public db: AngularFireDatabase) {
     this.openedReports = db.list<JobReport>('jobreports', ref => ref.orderByChild('status').equalTo('open')).valueChanges();
     this.closedReports = db.list<JobReport>('jobreports', ref => ref.orderByChild('status').equalTo('closed')).valueChanges();
+    this.itemsRef = db.list('jobreports');
   }
 
   ngOnInit() {
   }
 
   updateJobReportToClosed(key: string) {
-    const itemRef = this.db.list('jobreports');
-    itemRef.update(key, {status: 'closed'});
+    this.itemsRef.update(key, {status: 'closed'});
   }
 }
