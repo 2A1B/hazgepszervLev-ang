@@ -18,8 +18,11 @@
                 <b>{{ item.planned_delivery |  date:'MMM dd'}}</b>
               </span>
             </span>
-            <button mat-icon-button style="padding-left: 40px" (click)="updateJobReportToClosed(item.uuid)">
+            <button mat-icon-button (click)="updateJobReportToClosed(item.uuid)">
               <mat-icon style="color: green">done</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openNewServicesheetDialog(item.uuid)">
+              <mat-icon style="color: blue">insert_drive_file</mat-icon>
             </button>
           </mat-list-item>
         </mat-list>

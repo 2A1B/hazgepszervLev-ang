@@ -1,0 +1,22 @@
+.icon-color {
+  color: #fbc02d;
+}
+
+.image {
+  padding-right: 3px;
+  margin-left: -7px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/deep/ .mat-chip-selected {
+  color: #fbc02d;
+}
