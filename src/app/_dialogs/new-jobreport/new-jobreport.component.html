@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Új hibajegy</h1>
+<form class="example-form" (submit)="newJobreport(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, hibajelenseg.value, tervezettkiszallas.value, 'más')">
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelneve>
+      <mat-placeholder>
+        <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelcime>
+      <mat-placeholder>
+        <mat-icon class="icon-color">person_pin_circle</mat-icon> Ügyfél címe
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <span matPrefix>+36 &nbsp;</span>
+      <input type="tel" matInput #ugyfelszama>
+      <mat-placeholder>
+        <mat-icon class="icon-color">local_phone</mat-icon> Ügyfél telefonszáma
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #hibajelenseg>
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Hibajelenség
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #tervezettkiszallas>
+      <mat-placeholder>
+        <mat-icon class="icon-color">date_range</mat-icon> Tervezett kiszállás
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-chip-list>
+      <mat-chip *ngFor="let chip of availableColors">
+        <img class="image" mat-list-avatar src={{chip.image}} height="20" width="20">
+        {{chip.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button color="primary" type="submit" (click)="dialog.close()">
+      Hozzáadás
+    </button>
+  </div>
+</form>

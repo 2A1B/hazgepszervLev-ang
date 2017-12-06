@@ -14,11 +14,13 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { JobreportsComponent } from './jobreports/jobreports.component';
+import {NewJobreportComponent} from './_dialogs/new-jobreport/new-jobreport.component';
 import { ServicesheetComponent } from './servicesheet/servicesheet.component';
 import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.component';
 
 import { MatButtonModule,
   MatCardModule,
+  MatChipsModule,
   MatCheckboxModule,
   MatDialogModule,
   MatIconModule,
@@ -33,12 +35,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
+  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
+  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
+  projectId: 'hazgepszerv-f2543',
+  storageBucket: 'hazgepszerv-f2543.appspot.com',
+  messagingSenderId: '532373037664'
 };
 
 @NgModule({
@@ -47,6 +49,7 @@ export const config = {
     LoginComponent,
     HomeComponent,
     JobreportsComponent,
+    NewJobreportComponent,
     ServicesheetComponent,
     ServiceSheetPdfComponent
   ],
@@ -58,6 +61,7 @@ export const config = {
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
+    MatChipsModule,
     MatCheckboxModule,
     MatDialogModule,
     MatIconModule,
@@ -77,6 +81,7 @@ export const config = {
     PdfViewerModule
   ],
   providers: [AF],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NewJobreportComponent]
 })
 export class AppModule { }

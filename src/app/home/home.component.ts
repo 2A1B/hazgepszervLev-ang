@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {NewJobreportComponent} from "../_dialogs/new-jobreport/new-jobreport.component";
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,14 @@ export class HomeComponent implements OnInit {
   private menus: any;
   jobreportLink: string;
   isDarkTheme = false;
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
     this.jobreportLink = '[\'/home\', {outlets: {\'side\': [\'jobreports\']}}]';
-    this.menus = [
-      { label: 'Kezdőlap', icon: 'home', link: '/home'},
-      { label: 'Hibajegyek', icon: 'class', link: this.jobreportLink},
-      { label: 'Naptár', icon: 'today', link: '/calendar'},
-    ];
+  }
+
+  openNewJobreportDialog() {
+    const _dialog = this.dialog.open(NewJobreportComponent);
   }
 
 }
