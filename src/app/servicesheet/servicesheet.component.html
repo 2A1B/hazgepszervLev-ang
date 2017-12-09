@@ -2,24 +2,26 @@
   <mat-card-title style="color: blue">Munkalapok</mat-card-title>
   <mat-list>
     <mat-list-item *ngFor="let item of reports | async ">
-      <img *ngIf="item.job_title=='helyszíni'" mat-list-avatar src="/assets/images/home_service.png" alt="Desc 2">
-      <img *ngIf="item.job_title=='más'" mat-list-avatar src="/assets/images/swiss_army_knife.png" alt="Desc 2">
-      <img *ngIf="item.job_title=='felmérés'" mat-list-avatar src="/assets/images/in_transit.png" alt="Desc 2">
-      <img *ngIf="item.job_title=='szerviz'" mat-list-avatar src="/assets/images/screwdriver.png" alt="Desc 2">
       <h4 mat-line>{{ item.customer_name }}</h4>
       <p mat-line>{{ item.customer_address }}</p>
       <p mat-line>{{ item.customer_phone }}</p>
       <div style="width: 65px">
-        <button mat-icon-button style="color: blue" [routerLink]="['/service/pdf', item.uuid]" target="_blank">
-          <mat-icon>picture_as_pdf</mat-icon>
-        </button>
+        <a [routerLink]="['/service/pdf', item.uuid]" target="_blank">
+          <button mat-icon-button style="color: blue">
+            <mat-icon>picture_as_pdf</mat-icon>
+          </button>
+        </a>
       </div>
       <div style="width: 65px">
-        <button mat-icon-button style="color: blue" (click)="seeQRcode(item.uuid)">
+        <button mat-icon-button style="color: blue" (click)="filter.hidden = !filter.hidden;
+          seeQRcode(item.customer_name, item.customer_address, item.customer_phone, item.did_job, item.problem_review, item.used_goods, item.price, item.day)">
           <mat-icon>center_focus_weak</mat-icon>
         </button>
       </div>
     </mat-list-item>
   </mat-list>
 </mat-card>
+<div #filter hidden>
+  <app-qrcode value="{{qrtext}}"></app-qrcode>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>

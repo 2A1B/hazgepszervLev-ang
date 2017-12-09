@@ -10,17 +10,23 @@ import {ServiceSheet} from '../_models/ServiceSheet';
 })
 export class ServicesheetComponent implements OnInit {
   reports: Observable<any[]>;
-  
+  qrtext: string;
   constructor(public db: AngularFireDatabase) {
     this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('customer_name')).valueChanges();
   }
   ngOnInit() {
   }
-  
   seePDF(uuid: string) {
   }
-  
-  seeQRcode(uuid: string) {
+  seeQRcode(nev: string, cim: string, tel: string, did: string, elveg: string, anyag: string, ar: string, nap: string) {
+    this.qrtext = 'Név: ' + nev + '\n'
+      + 'Cím: ' + cim + '\n'
+      + 'Telefonszám: ' + tel + '\n'
+      + 'Munka megnevezése: ' + did + '\n'
+      + 'Elvégzett munka: ' + elveg + '\n'
+      + 'Felhasználat anyag: ' + anyag + '\n'
+      + 'Javítás ára: ' + ar + '\n'
+      + 'Elkészült: ' + nap;
   }
 
 }
