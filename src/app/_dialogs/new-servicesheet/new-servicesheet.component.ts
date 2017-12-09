@@ -11,14 +11,13 @@ import {Observable} from 'rxjs/Observable';
 })
 export class NewServicesheetComponent implements OnInit {
   itemsRef: AngularFireList<any>;
-  reports: Observable<any[]>;
+  today: string;
   jobreportKey: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialog: MatDialogRef<NewServicesheetComponent>,
               public db: AngularFireDatabase) {
     this.itemsRef = db.list('servicesheets');
     this.jobreportKey = data;
-    // this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('uuid').equalTo(this.data)).valueChanges();
   }
 
   ngOnInit() {
@@ -26,9 +25,11 @@ export class NewServicesheetComponent implements OnInit {
 
   public newServiceSheet( cn: string, ca: string,
                        cp: string, pd: string,
-                       pr: string, ug:string,
+                       pr: string, ug: string,
                        ar: string) {
     const refi = this.db.list('servicesheets').query.ref.push();
-    this.itemsRef.push(new ServiceSheet(cn, ca, cp, pr, pd, ug, ar, this.jobreportKey.toString()));
+    const date = new Date();
+    this.today = date.toLocaleDateString();
+    this.itemsRef.push(new ServiceSheet(cn, ca, cp, pr, pd, ug, ar, this.today, this.jobreportKey.toString()));
   }
 }

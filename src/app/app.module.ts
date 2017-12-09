@@ -8,6 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AF } from '../providers/af';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { QRCodeModule } from 'angular2-qrcode';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +19,7 @@ import {NewJobreportComponent} from './_dialogs/new-jobreport/new-jobreport.comp
 import { ServicesheetComponent } from './servicesheet/servicesheet.component';
 import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.component';
 import { NewServicesheetComponent } from './_dialogs/new-servicesheet/new-servicesheet.component';
+import { QrcodeComponent} from './qrcode/qrcode.component';
 
 import { MatButtonModule,
   MatCardModule,
@@ -36,12 +38,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
+  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
+  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
+  projectId: 'hazgepszerv-f2543',
+  storageBucket: 'hazgepszerv-f2543.appspot.com',
+  messagingSenderId: '532373037664'
 };
 
 @NgModule({
@@ -53,7 +55,8 @@ export const config = {
     NewJobreportComponent,
     ServicesheetComponent,
     ServiceSheetPdfComponent,
-    NewServicesheetComponent
+    NewServicesheetComponent,
+    QrcodeComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ export const config = {
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    PdfViewerModule
+    PdfViewerModule,
+    QRCodeModule
   ],
   providers: [AF],
   bootstrap: [AppComponent],

@@ -14,20 +14,14 @@ export class ServiceSheetPdfComponent implements OnInit {
 
   public id: string;
   reports: Observable<any[]>;
-  today: string;
 
   constructor(public db: AngularFireDatabase,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
-      this.id = params['id']; 
+      this.id = params['id'];
       this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('uuid').equalTo(this.id)).valueChanges();
     });
-    const date = new Date();
-    this.today = date.toLocaleDateString();
-    ;
   }
-  
   ngOnInit() {
   }
-
 }
