@@ -9,16 +9,18 @@ import { AF } from '../providers/af';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { QRCodeModule } from 'angular2-qrcode';
+import {CalendarModule} from 'ap-angular2-fullcalendar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { JobreportsComponent } from './jobreports/jobreports.component';
-import {NewJobreportComponent} from './_dialogs/new-jobreport/new-jobreport.component';
+import { NewJobreportComponent } from './_dialogs/new-jobreport/new-jobreport.component';
 import { ServicesheetComponent } from './servicesheet/servicesheet.component';
 import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.component';
 import { NewServicesheetComponent } from './_dialogs/new-servicesheet/new-servicesheet.component';
+import { CalComponent } from './calendar/calendar.component';
 import { QrcodeComponent} from './qrcode/qrcode.component';
 
 import { MatButtonModule,
@@ -38,12 +40,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
-  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
-  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
-  projectId: 'hazgepszerv-f2543',
-  storageBucket: 'hazgepszerv-f2543.appspot.com',
-  messagingSenderId: '532373037664'
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 };
 
 @NgModule({
@@ -56,7 +58,8 @@ export const config = {
     ServicesheetComponent,
     ServiceSheetPdfComponent,
     NewServicesheetComponent,
-    QrcodeComponent
+    QrcodeComponent,
+    CalComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ export const config = {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     PdfViewerModule,
-    QRCodeModule
+    QRCodeModule,
+    CalendarModule
   ],
   providers: [AF],
   bootstrap: [AppComponent],

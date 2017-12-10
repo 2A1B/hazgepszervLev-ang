@@ -23,7 +23,7 @@
           <mat-icon mat-list-icon>content_paste</mat-icon>
           <h4 mat-line>Munkalapok</h4>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/calendar']" [class.selected]="'/home' === selectedLink">
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['calendar']}}]" [class.selected]="'/home' === selectedLink">
           <mat-icon mat-list-icon>today</mat-icon>
           <h4 mat-line>Naptár</h4>
         </mat-list-item>
