@@ -20,9 +20,9 @@ export class AppComponent {
           this.router.navigate(['login']);
         } else {
           console.log('Successfully Logged in.');
+          this.isLoggedIn = true;
+          this.router.navigate(['home']);
         }
-        this.isLoggedIn = true;
-        this.router.navigate(['home']);
       }
     );
   }

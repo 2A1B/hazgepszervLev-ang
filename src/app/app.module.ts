@@ -41,12 +41,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: ''
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 };
 
 @NgModule({
