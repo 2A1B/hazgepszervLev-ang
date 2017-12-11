@@ -11,19 +11,19 @@
   <mat-sidenav-container fxFlexFill fxLayout="row">
     <mat-sidenav mode="side" opened #sidenav>
       <mat-nav-list>
-        <mat-list-item [routerLink]="['/home']" [class.selected]="'/home' === selectedLink" (click)="onSelect('/home')">
+        <mat-list-item [routerLink]="['/home']" [class.selected]="'/home'">
           <mat-icon mat-list-icon>home</mat-icon>
           <h4 mat-line>Kezdőlap</h4>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['jobreports']}}]" [class.selected]="'/home' === selectedLink">
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['jobreports']}}]" [class.selected]="'/home'">
           <mat-icon mat-list-icon>class</mat-icon>
           <h4 mat-line>Hibajegyek</h4>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['servicesheet']}}]" [class.selected]="'/home' === selectedLink">
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['servicesheet']}}]" [class.selected]="'/home'">
           <mat-icon mat-list-icon>content_paste</mat-icon>
           <h4 mat-line>Munkalapok</h4>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['calendar']}}]" [class.selected]="'/home' === selectedLink">
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['calendar']}}]" [class.selected]="'/home'">
           <mat-icon mat-list-icon>today</mat-icon>
           <h4 mat-line>Naptár</h4>
         </mat-list-item>
