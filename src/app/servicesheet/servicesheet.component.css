@@ -5,3 +5,19 @@
 /deep/ .mat-tab-group {
   min-width: 800px;
 }
+
+.xfle {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.imgstyle {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.header-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}

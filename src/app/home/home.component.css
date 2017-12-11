@@ -16,8 +16,6 @@
 }
 
 .selected {
-  border-right : 5px solid #EEE;
-  border-bottom : 5px solid #EEE;
 }
 
 .mat-list-icon {
@@ -56,4 +54,9 @@ mat-sidenav {
 
 /deep/ .mat-list-item-content {
   height: auto !important;
+}
+
+.mat-nav-list .mat-list-item .mat-list-item-ripple {
+  padding-top: 45px;
+  position: relative;
 }
