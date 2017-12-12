@@ -1,27 +1,32 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {AngularFireDatabase} from 'angularfire2/database';
-import {Observable} from 'rxjs/Observable';
+import { Component, Input } from '@angular/core';
 import {ServiceSheet} from '../_models/ServiceSheet';
-import { forEach } from '@angular/router/src/utils/collection';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-service-sheet-pdf',
-  templateUrl: './service-sheet-pdf.component.html',
-  styleUrls: ['./service-sheet-pdf.component.css']
+  template: `
+    <img style="width: 20px; height: 20px; margin-right: 5px;" src="/assets/images/pdf.png">
+    <a (click)="seePDF(value)" target="_blank">Munkalap letöltése</a>
+  `
 })
-export class ServiceSheetPdfComponent implements OnInit {
-
-  public id: string;
-  reports: Observable<any[]>;
-
-  constructor(public db: AngularFireDatabase,
-              private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('uuid').equalTo(this.id)).valueChanges();
-    });
+export class ServiceSheetPdfComponent {
+  @Input() value: ServiceSheet;
+  date = new Date();
+  today = this.date.toLocaleDateString();
+  constructor() {
   }
-  ngOnInit() {
+
+  repleceChar(value: string, what: string){
+  }
+
+  seePDF(sheet: ServiceSheet) {
+
+    const doc = new jsPDF();
+    doc.text(20, 20, sheet.customer_name);
+    doc.text(20, 30, sheet.customer_address);
+    const name = sheet.customer_name;
+    const now = this.today.replace('.', '-');
+    console.log(now);
+    // doc.save(fileName);
   }
 }

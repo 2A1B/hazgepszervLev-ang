@@ -12,18 +12,12 @@ import { Title } from '@angular/platform-browser';
 export class ServicesheetComponent implements OnInit {
   reports: Observable<any[]>;
   qrtext: string;
-  
   constructor(public db: AngularFireDatabase, private titleService: Title) {
     this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('customer_name')).valueChanges();
   }
-  
   ngOnInit() {
     this.titleService.setTitle('Munkalapok');
   }
-  
-  seePDF(uuid: string) {
-  }
-  
   seeQRcode(nev: string, cim: string, tel: string, did: string, elveg: string, anyag: string, ar: string, nap: string) {
     this.qrtext = 'Név: ' + nev + '\n'
       + 'Cím: ' + cim + '\n'
