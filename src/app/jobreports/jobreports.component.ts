@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {JobReport} from '../_models/JobReport';
 import {NewServicesheetComponent} from "../_dialogs/new-servicesheet/new-servicesheet.component";
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-jobreports',
@@ -14,14 +15,17 @@ export class JobreportsComponent implements OnInit {
   openedReports: Observable<any[]>;
   closedReports: Observable<any[]>;
   itemsRef: AngularFireList<any>;
+  
   constructor(public db: AngularFireDatabase,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private titleService: Title) {
     this.openedReports = db.list<JobReport>('jobreports', ref => ref.orderByChild('status').equalTo('open')).valueChanges();
     this.closedReports = db.list<JobReport>('jobreports', ref => ref.orderByChild('status').equalTo('closed')).valueChanges();
     this.itemsRef = db.list('jobreports');
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Hibajegyek');
   }
 
   updateJobReportToClosed(key: string) {
