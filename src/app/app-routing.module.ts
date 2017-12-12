@@ -10,11 +10,11 @@ import {CalComponent} from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, data: { title: 'Bejelentkezés' } },
   { path: 'home', component: HomeComponent, children: [
-    { path: 'jobreports', component: JobreportsComponent, outlet: 'side' },
-    { path: 'servicesheet', component: ServicesheetComponent, outlet: 'side' },
-    { path: 'calendar', component: CalComponent, outlet: 'side' }
+    { path: 'jobreports', component: JobreportsComponent, outlet: 'side', data: { title: 'Hibajegyek' } },
+    { path: 'servicesheet', component: ServicesheetComponent, outlet: 'side', data: { title: 'Munkalapok' } },
+    { path: 'calendar', component: CalComponent, outlet: 'side', data: { title: 'Naptár' } }
     ]
   },
   { path: 'service/pdf/:id', component: ServiceSheetPdfComponent }

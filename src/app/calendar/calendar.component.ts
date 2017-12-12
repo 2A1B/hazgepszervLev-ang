@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {JobReport} from '../_models/JobReport';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-calendar',
@@ -20,7 +21,7 @@ export class CalComponent {
     console.log('Calendar initialized');
   }
 
-  constructor(public db: AngularFireDatabase) {
+  constructor(public db: AngularFireDatabase, private titleService: Title) {
     this.openedReports = db.list<JobReport>('jobreports', ref => ref.orderByChild('status').equalTo('open')).valueChanges();
     this.openedReports.subscribe(jobreports => {
       jobreports.forEach( jobreport => {
@@ -49,5 +50,9 @@ export class CalComponent {
       eventLimit: false,
       events: this.reportEvents
     };
+  }
+  
+  ngOnInit() {
+    this.titleService.setTitle('Naptár');
   }
 }
