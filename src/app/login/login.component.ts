@@ -11,24 +11,24 @@ import { Title } from '@angular/platform-browser';
 })
 export class LoginComponent {
   public error: any;
-  
+
   constructor(public afService: AF, private router: Router, private titleService: Title) {}
-  
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
-  
+
   passwordFormControl = new FormControl('', [
     Validators.required,
   ]);
-  
+
   loginWithEmail(email, password) {
     this.afService.loginWithEmail(email, password).then((res) => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['home']);
     });
   }
-  
+
   ngOnInit() {
     this.titleService.setTitle('Bejelentkezés');
   }

@@ -1,0 +1,52 @@
+<div fxLayout="row" style="max-height: 65%">
+  <mat-card fxLayout="row" fxLayout.sm="column">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="/assets/images/info.png">
+      <mat-card-title>Aktív hibajegyek</mat-card-title>
+      <mat-card-title class="title">{{openedReportsCount}} db</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card style="margin-left: 10px" fxLayout="row" fxLayout.sm="column">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="/assets/images/closedchart.png">
+      <mat-card-title>A hónapban lezárt hibajegyek</mat-card-title>
+      <mat-card-title class="title">{{closedInThisMonth}} db</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card style="margin-left: 10px" fxLayout="row" fxLayout.sm="column">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="/assets/images/cash.png">
+      <mat-card-title>Bevétel a hónapban</mat-card-title>
+      <mat-card-title class="title">{{incomeInThisMonth}} Ft</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card style="margin-left: 10px" fxLayout="row" fxLayout.sm="column">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="/assets/images/allcash.png">
+      <mat-card-title>Összes bevétel</mat-card-title>
+      <mat-card-title class="title">{{incomeAll}} Ft</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div>
+  <h3>A mai napra tervezett események:</h3>
+  <div *ngFor="let item of openedReports | async " style="display: inline-block">
+    <mat-card style="margin-left: 10px" fxLayout="row" fxLayout.sm="column">
+      <mat-card-header>
+        <img *ngIf="item.job_title=='helyszíni'" mat-card-avatar class="header-image" src="/assets/images/home_service.png">
+        <img *ngIf="item.job_title=='más'" mat-card-avatar class="header-image" src="/assets/images/swiss_army_knife.png">
+        <img *ngIf="item.job_title=='felmérés'" mat-card-avatar class="header-image" src="/assets/images/in_transit.png">
+        <img *ngIf="item.job_title=='szerviz'" mat-card-avatar class="header-image" src="/assets/images/screwdriver.png">
+        <mat-card-title>
+          <b>{{item.customer_name}}</b>
+        </mat-card-title>
+        <b>{{ item.planned_delivery |  date:'HH:mm'}}</b>
+        <mat-card-subtitle>{{item.customer_address}}</mat-card-subtitle>
+        <mat-card-subtitle>{{item.problem_review}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>

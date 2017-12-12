@@ -6,8 +6,8 @@
       </button>
       <span>Háztartási Gépszerviz</span>
       <span class="spacer"></span>
-      <button mat-button>
-        <mat-icon (click)="logout()">exit_to_app</mat-icon>
+      <button (click)="logout()" mat-button [routerLink]="['/home']">
+        <mat-icon>exit_to_app</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -15,7 +15,7 @@
   <mat-sidenav-container fxFlexFill fxLayout="row">
     <mat-sidenav mode="side" opened #sidenav>
       <mat-nav-list>
-        <mat-list-item [routerLink]="['/home']" [class.selected]="'/home'">
+        <mat-list-item [routerLink]="['/home', {outlets: {'side': ['homescreen']}}]" [class.selected]="'/home'">
           <mat-icon mat-list-icon>home</mat-icon>
           <h4 mat-line>Kezdőlap</h4>
         </mat-list-item>

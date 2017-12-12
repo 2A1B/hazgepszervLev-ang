@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServiceSheetPdfComponent } from './service-sheet-pdf.component';
+import { HomescreenComponent } from './homescreen.component';
 
-describe('ServiceSheetPdfComponent', () => {
-  let component: ServiceSheetPdfComponent;
-  let fixture: ComponentFixture<ServiceSheetPdfComponent>;
+describe('HomescreenComponent', () => {
+  let component: HomescreenComponent;
+  let fixture: ComponentFixture<HomescreenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServiceSheetPdfComponent ]
+      declarations: [ HomescreenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceSheetPdfComponent);
+    fixture = TestBed.createComponent(HomescreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

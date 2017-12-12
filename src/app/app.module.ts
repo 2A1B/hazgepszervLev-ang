@@ -22,6 +22,7 @@ import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.
 import { NewServicesheetComponent } from './_dialogs/new-servicesheet/new-servicesheet.component';
 import { CalComponent } from './calendar/calendar.component';
 import { QrcodeComponent} from './qrcode/qrcode.component';
+import { HomescreenComponent } from './homescreen/homescreen.component';
 
 import { MatButtonModule,
   MatCardModule,
@@ -41,12 +42,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
+  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
+  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
+  projectId: 'hazgepszerv-f2543',
+  storageBucket: 'hazgepszerv-f2543.appspot.com',
+  messagingSenderId: '532373037664'
 };
 
 @NgModule({
@@ -61,6 +62,7 @@ export const config = {
     NewServicesheetComponent,
     QrcodeComponent,
     CalComponent,
+    HomescreenComponent,
   ],
   imports: [
     BrowserModule,

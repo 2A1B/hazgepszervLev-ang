@@ -49,19 +49,7 @@
           </td>
         </tr>
       </table>
-      <a class="xfle" [routerLink]="['/service/pdf', item.uuid]" target="_blank">
-        <img class="imgstyle" src="/assets/images/pdf.png">
-        Munkalap letöltése
-      </a>
+      <app-service-sheet-pdf [value]="item"></app-service-sheet-pdf>
     </mat-expansion-panel>
   </mat-accordion>
-
-  <!--
-        <a [routerLink]="['/service/pdf', item.uuid]" target="_blank">
-          <button mat-icon-button style="color: blue">
-            <mat-icon>picture_as_pdf</mat-icon>
-          </button>
-        </a>
-      -->
 </mat-card>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
