@@ -3,8 +3,10 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {JobReport} from '../_models/JobReport';
 import {NewServicesheetComponent} from "../_dialogs/new-servicesheet/new-servicesheet.component";
+import {JobreportViewComponent} from "../_dialogs/jobreport-view/jobreport-view.component";
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
+import { ServiceSheet } from '../_models/ServiceSheet';
 
 @Component({
   selector: 'app-jobreports',
@@ -29,8 +31,16 @@ export class JobreportsComponent implements OnInit {
     this.itemsRef.update(key, {status: 'closed'});
   }
 
-  openNewServicesheetDialog(key: String) {
+  openNewServicesheetDialog(key: JobReport) {
     const _dialog = this.dialog.open(NewServicesheetComponent, {
+      data: {
+        item: key
+      }
+    });
+  }
+  
+  openJobreportView(key: string) {
+    const _dialog = this.dialog.open(JobreportViewComponent, {
       data: {
         item: key
       }

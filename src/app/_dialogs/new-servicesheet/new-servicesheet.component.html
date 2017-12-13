@@ -2,29 +2,28 @@
 <form class="example-form" (submit)="newServiceSheet(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, munka.value, elvegzettmunka.value, anyag.value, ar.value)">
   <div mat-dialog-content>
     <mat-form-field class="example-full-width">
-      <input matInput #ugyfelneve>
+      <input matInput #ugyfelneve="ngModel" name="customer_name" [(ngModel)]="jobreport.customer_name">
       <mat-placeholder>
         <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
       </mat-placeholder>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput #ugyfelcime>
+      <input matInput #ugyfelcime="ngModel" name="customer_address" [(ngModel)]="jobreport.customer_address">
       <mat-placeholder>
         <mat-icon class="icon-color">person_pin_circle</mat-icon> Ügyfél címe
       </mat-placeholder>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <span matPrefix>+36 &nbsp;</span>
-      <input type="tel" matInput #ugyfelszama>
+      <input type="tel" matInput #ugyfelszama="ngModel" name="customer_phone" [(ngModel)]="jobreport.customer_phone">
       <mat-placeholder>
         <mat-icon class="icon-color">local_phone</mat-icon> Ügyfél telefonszáma
       </mat-placeholder>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput #munka>
+      <input matInput #munka="ngModel" name="problem_review" [(ngModel)]="jobreport.problem_review">
       <mat-placeholder>
         <mat-icon class="icon-color">error</mat-icon> Munka megnevezése
       </mat-placeholder>

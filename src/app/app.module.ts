@@ -20,6 +20,7 @@ import { NewJobreportComponent } from './_dialogs/new-jobreport/new-jobreport.co
 import { ServicesheetComponent } from './servicesheet/servicesheet.component';
 import { ServiceSheetPdfComponent } from './service-sheet-pdf/service-sheet-pdf.component';
 import { NewServicesheetComponent } from './_dialogs/new-servicesheet/new-servicesheet.component';
+import { JobreportViewComponent } from './_dialogs/jobreport-view/jobreport-view.component';
 import { CalComponent } from './calendar/calendar.component';
 import { QrcodeComponent} from './qrcode/qrcode.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
@@ -42,12 +43,12 @@ import { MatButtonModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
-  apiKey: 'AIzaSyCSN7GoO1ms8duwyDfMb6S5uS9B9QcKLOg',
-  authDomain: 'hazgepszerv-f2543.firebaseapp.com',
-  databaseURL: 'https://hazgepszerv-f2543.firebaseio.com',
-  projectId: 'hazgepszerv-f2543',
-  storageBucket: 'hazgepszerv-f2543.appspot.com',
-  messagingSenderId: '532373037664'
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 };
 
 @NgModule({
@@ -63,6 +64,7 @@ export const config = {
     QrcodeComponent,
     CalComponent,
     HomescreenComponent,
+    JobreportViewComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +99,7 @@ export const config = {
   providers: [AF],
   bootstrap: [AppComponent],
   entryComponents: [NewJobreportComponent,
-                    NewServicesheetComponent]
+                    NewServicesheetComponent,
+                    JobreportViewComponent]
 })
 export class AppModule { }
