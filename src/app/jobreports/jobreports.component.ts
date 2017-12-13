@@ -39,7 +39,7 @@ export class JobreportsComponent implements OnInit {
     });
   }
   
-  openJobreportView(key: string) {
+  openJobreportView(key: JobReport) {
     const _dialog = this.dialog.open(JobreportViewComponent, {
       data: {
         item: key

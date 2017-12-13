@@ -1,0 +1,21 @@
+.icon-color {
+  color: #fbc02d;
+}
+
+.header {
+  display: flex;
+}
+
+.title {
+  padding: 10px;
+}
+
+.img {
+  padding-right: 3px;
+  margin-left: -7px;
+  max-height: 50px;
+}
+
+div, button {
+  padding: 20px;
+}
