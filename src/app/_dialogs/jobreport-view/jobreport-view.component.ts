@@ -11,7 +11,6 @@ import { JobReport } from '../../_models/JobReport';
 })
 export class JobreportViewComponent implements OnInit {
 
-  today: string;
   jobreport: JobReport;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialog: MatDialogRef<JobreportViewComponent>) {

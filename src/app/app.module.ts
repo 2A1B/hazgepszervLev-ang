@@ -24,6 +24,7 @@ import { JobreportViewComponent } from './_dialogs/jobreport-view/jobreport-view
 import { CalComponent } from './calendar/calendar.component';
 import { QrcodeComponent} from './qrcode/qrcode.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
+import { JobreportEditComponent } from './_dialogs/jobreport-edit/jobreport-edit.component';
 
 import { MatButtonModule,
   MatCardModule,
@@ -65,7 +66,8 @@ export const config = {
     QrcodeComponent,
     CalComponent,
     HomescreenComponent,
-    JobreportViewComponent
+    JobreportViewComponent,
+    JobreportEditComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +104,7 @@ export const config = {
   bootstrap: [AppComponent],
   entryComponents: [NewJobreportComponent,
                     NewServicesheetComponent,
-                    JobreportViewComponent]
+                    JobreportViewComponent,
+                    JobreportEditComponent]
 })
 export class AppModule { }
