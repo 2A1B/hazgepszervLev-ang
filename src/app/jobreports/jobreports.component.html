@@ -18,10 +18,10 @@
                 <b>{{ item.planned_delivery |  date:'MMM dd'}}</b>
               </span>
             </span>
-            <button mat-icon-button (click)="updateJobReportToClosed(item.uuid)">
+            <button mat-icon-button matTooltip="Lezárás" (click)="updateJobReportToClosed(item.uuid)">
               <mat-icon style="color: green">done</mat-icon>
             </button>
-            <button mat-icon-button (click)="openNewServicesheetDialog(item)">
+            <button mat-icon-button matTooltip="Munkalap létehozás" (click)="openNewServicesheetDialog(item)">
               <mat-icon style="color: blue">insert_drive_file</mat-icon>
             </button>
           </mat-list-item>
@@ -36,16 +36,19 @@
             <img *ngIf="item.job_title=='más'" mat-list-avatar src="/assets/images/swiss_army_knife.png" alt="Desc 2">
             <img *ngIf="item.job_title=='felmérés'" mat-list-avatar src="/assets/images/in_transit.png" alt="Desc 2">
             <img *ngIf="item.job_title=='szerviz'" mat-list-avatar src="/assets/images/screwdriver.png" alt="Desc 2">
-            <h4 mat-line>{{ item.customer_name }}</h4>
-            <p mat-line>{{ item.customer_address }}</p>
-            <p mat-line>{{ item.customer_phone }}</p>
-            <span style="width: 65px">
+            <h4 mat-line (click)="openJobreportView(item)">{{ item.customer_name }}</h4>
+            <p mat-line (click)="openJobreportView(item)">{{ item.customer_address }}</p>
+            <p mat-line (click)="openJobreportView(item)">{{ item.customer_phone }}</p>
+            <span style="width: 65px" (click)="openJobreportView(item)">
               <span>
                 <b>{{ item.planned_delivery |  date:'HH:mm'}}</b>
                 <br/>
                 <b>{{ item.planned_delivery |  date:'MMM dd'}}</b>
               </span>
             </span>
+            <button mat-icon-button matTooltip="Munkalap létehozás" (click)="openNewServicesheetDialog(item)">
+              <mat-icon style="color: blue">insert_drive_file</mat-icon>
+            </button>
           </mat-list-item>
         </mat-list>
       </div>

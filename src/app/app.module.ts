@@ -40,6 +40,7 @@ import { MatButtonModule,
   MatSlideToggleModule,
   MatTabsModule,
   MatToolbarModule,
+  MatTooltipModule,
   MatPaginatorModule } from '@angular/material';
 
 export const config = {
@@ -87,6 +88,7 @@ export const config = {
     MatSlideToggleModule,
     MatTabsModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatPaginatorModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(config),
