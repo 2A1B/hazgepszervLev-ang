@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {ServiceSheet} from '../_models/ServiceSheet';
 import { Title } from '@angular/platform-browser';
+import {MatDialog} from '@angular/material';
+import {MapComponent} from "../_dialogs/map/map.component";
 
 @Component({
   selector: 'app-servicesheet',
@@ -12,8 +14,11 @@ import { Title } from '@angular/platform-browser';
 export class ServicesheetComponent implements OnInit {
   reports: Observable<any[]>;
   qrtext: string;
-  constructor(public db: AngularFireDatabase, private titleService: Title) {
+  itemsRef: AngularFireList<any>;
+
+  constructor(public db: AngularFireDatabase, private titleService: Title, public dialog: MatDialog,) {
     this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('customer_name')).valueChanges();
+    this.itemsRef = db.list('jobreports');
   }
   ngOnInit() {
     this.titleService.setTitle('Munkalapok');
@@ -29,4 +34,11 @@ export class ServicesheetComponent implements OnInit {
       + 'Elkészült: ' + nap;
   }
 
+  openMap(address: string) {
+    const _dialog = this.dialog.open(MapComponent, {
+      data: {
+        item: address
+      }
+    });
+  }
 }
