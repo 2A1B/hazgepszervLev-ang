@@ -1,9 +1,44 @@
-<mat-card fxFlexFill fxFlex="100" mat-stretch-tabs>
-  <mat-card-title style="color: #fbc02d">Munkalapok</mat-card-title>
-  <mat-accordion class="headers-align">
+<div *ngFor="let item of reports | async" style="display: inline-block">
+  <mat-card style="margin-left: 10px; margin-top: 10px;" fxLayout="column" fxLayout.sm="column">
+    <mat-card-header>
+      <app-qrcode value="{{qrtext}}">{{seeQRcode(item.customer_name, item.customer_address, item.customer_phone, item.did_job, item.problem_review, item.used_goods, item.price, item.day)}}</app-qrcode>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/person.png">
+        <b>Név:</b> &ensp; {{ item.customer_name }}
+      </mat-card-title>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/map.png">
+        <b>Cím:</b> &ensp;{{ item.customer_address }}
+      </mat-card-title>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/phone.png">
+        <b>Telefonszám:</b> &ensp; {{ item.customer_phone }}
+      </mat-card-title>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/goal.png">
+        <b>Elvégzett munka:</b> &ensp; {{ item.problem_review }}
+      </mat-card-title>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/cash.png">
+        <b>Javítás ára:</b> &ensp; {{ item.price }} Ft
+      </mat-card-title>
+      <mat-card-title>
+        <img class="imgstyle" src="/assets/images/event.png">
+        <b>Dátum:</b> &ensp; {{ item.day }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <app-service-sheet-pdf [value]="item"></app-service-sheet-pdf>
+      <button mat-button (click)="openMap(item.customer_address)">TÉRKÉP</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+  <!--<mat-accordion class="headers-align">
   <mat-expansion-panel *ngFor="let item of reports | async " [expanded]="seeQRcode(item.customer_name, item.customer_address, item.customer_phone, item.did_job, item.problem_review, item.used_goods, item.price, item.day)" hideToggle="true">
       <mat-expansion-panel-header>
-        <mat-panel-title>{{ item.customer_name }}</mat-panel-title>
+        <mat-panel-title>
+          {{ item.customer_name }}
+        </mat-panel-title>
         <mat-panel-description>
           {{ item.customer_address }}
         </mat-panel-description>
@@ -16,6 +51,9 @@
           </td>
           <th rowspan="6">
             <app-qrcode value="{{qrtext}}"></app-qrcode>
+          </th>
+          <th rowspan="6" style="width: 300px">
+            <app-map address="{{item.customer_address}}"></app-map>
           </th>
         </tr>
         <tr>
@@ -51,5 +89,5 @@
       </table>
       <app-service-sheet-pdf [value]="item"></app-service-sheet-pdf>
     </mat-expansion-panel>
-  </mat-accordion>
-</mat-card>
+  </mat-accordion>-->
+

@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule} from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AF } from '../providers/af';
+import { MapService } from '../providers/MapService';
+import { AgmCoreModule } from '@agm/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { QRCodeModule } from 'angular2-qrcode';
@@ -24,8 +27,10 @@ import { JobreportViewComponent } from './_dialogs/jobreport-view/jobreport-view
 import { CalComponent } from './calendar/calendar.component';
 import { QrcodeComponent} from './qrcode/qrcode.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
+import { MapComponent } from './_dialogs/map/map.component';
 
-import { MatButtonModule,
+import {
+  MatButtonModule,
   MatCardModule,
   MatChipsModule,
   MatCheckboxModule,
@@ -35,13 +40,16 @@ import { MatButtonModule,
   MatInputModule,
   MatListModule,
   MatMenuModule,
+  MatNativeDateModule,
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatPaginatorModule } from '@angular/material';
+  MatPaginatorModule,
+  MatDatepickerModule, MAT_DATE_LOCALE
+} from '@angular/material';
 
 export const config = {
   apiKey: '',
@@ -65,24 +73,28 @@ export const config = {
     QrcodeComponent,
     CalComponent,
     HomescreenComponent,
-    JobreportViewComponent
+    JobreportViewComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
     MatCheckboxModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatNativeDateModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
@@ -96,12 +108,19 @@ export const config = {
     AngularFireDatabaseModule,
     PdfViewerModule,
     QRCodeModule,
-    CalendarModule
+    CalendarModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
-  providers: [AF],
+  providers: [AF,
+    MapService,
+    {provide: MAT_DATE_LOCALE, useValue: 'hu-HU'},
+  ],
   bootstrap: [AppComponent],
   entryComponents: [NewJobreportComponent,
                     NewServicesheetComponent,
-                    JobreportViewComponent]
+                    JobreportViewComponent,
+                    MapComponent]
 })
 export class AppModule { }
