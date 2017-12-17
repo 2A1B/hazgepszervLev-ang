@@ -28,7 +28,7 @@ export class NewJobreportComponent implements OnInit {
   public newJobreport( cn: string, ca: string,
                        cp: string, pr: string,
                        pd: string, job_title: string) {
-    const refi = this.db.list('jobreports').query.ref.push();
-    this.itemsRef.push(new JobReport(cn, ca, cp, pd, pr, job_title, 'open', refi.key));
+    const id = this.itemsRef.push(new JobReport(cn, ca, cp, pd, pr, job_title, 'open', '')).key;
+    this.itemsRef.update(id, {uuid: asd});
   }
 }

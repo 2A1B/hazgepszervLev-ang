@@ -33,7 +33,7 @@
 </div>
 <div>
   <h3>A mai napra tervezett események:</h3>
-  <div *ngFor="let item of openedReports | async " style="display: inline-block">
+  <div *ngFor="let item of openedReportsInThisDay | async " style="display: inline-block">
     <mat-card style="margin-left: 10px" fxLayout="row" fxLayout.sm="column">
       <mat-card-header>
         <img *ngIf="item.job_title=='helyszíni'" mat-card-avatar class="header-image" src="/assets/images/home_service.png">
