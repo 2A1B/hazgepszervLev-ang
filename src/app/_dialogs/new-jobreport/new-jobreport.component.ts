@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA, MatDatepicker} from '@angular/material';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {JobReport} from '../../_models/JobReport';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-new-jobreport',
@@ -10,11 +11,12 @@ import {JobReport} from '../../_models/JobReport';
 })
 export class NewJobreportComponent implements OnInit {
   @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date>;
-  availableColors = [
-    { name: 'szervíz', image: '/assets/images/screwdriver.png' },
-    { name: 'helyszíni', image: '/assets/images/home_service.png' },
-    { name: 'felmérés', image: '/assets/images/in_transit.png' },
-    { name: 'más', image: '/assets/images/swiss_army_knife.png' }
+  myControl: FormControl = new FormControl();
+  options = [
+    'szervíz',
+    'helyszíni',
+    'felmérés',
+    'más'
   ];
   startDate = new Date();
   itemsRef: AngularFireList<any>;
@@ -29,6 +31,6 @@ export class NewJobreportComponent implements OnInit {
                        cp: string, pr: string,
                        pd: string, job_title: string) {
     const id = this.itemsRef.push(new JobReport(cn, ca, cp, pd, pr, job_title, 'open', '')).key;
-    this.itemsRef.update(id, {uuid: asd});
+    this.itemsRef.update(id, {uuid: id});
   }
 }

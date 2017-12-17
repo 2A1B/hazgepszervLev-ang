@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Új hibajegy</h1>
-<form class="example-form" (submit)="newJobreport(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, hibajelenseg.value, tervezettkiszallas.value, 'más')">
+<form class="example-form" (submit)="newJobreport(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, hibajelenseg.value, tervezettkiszallas.value, tipus.value)">
   <div mat-dialog-content>
     <mat-form-field class="example-full-width">
       <input matInput #ugyfelneve>
@@ -31,10 +31,6 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <!--<input matInput #tervezettkiszallas>
-      <mat-placeholder>
-        <mat-icon class="icon-color">date_range</mat-icon> Tervezett kiszállás
-      </mat-placeholder>-->
       <input matInput [matDatepicker]="picker" #tervezettkiszallas>
       <mat-placeholder>
         <mat-icon class="icon-color">date_range</mat-icon> Tervezett kiszállás
@@ -43,12 +39,17 @@
       <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
     </mat-form-field>
 
-    <mat-chip-list>
-      <mat-chip *ngFor="let chip of availableColors">
-        <img class="image" mat-list-avatar src={{chip.image}} height="20" width="20">
-        {{chip.name}}
-      </mat-chip>
-    </mat-chip-list>
+    <mat-form-field class="example-full-width">
+      <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" #tipus>
+      <mat-placeholder>
+        <mat-icon class="icon-color">settings</mat-icon> Munka típusa
+      </mat-placeholder>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
   </div>
 
   <div mat-dialog-actions>

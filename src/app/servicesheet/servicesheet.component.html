@@ -27,67 +27,13 @@
         <b>Dátum:</b> &ensp; {{ item.day }}
       </mat-card-title>
     </mat-card-header>
-    <mat-card-actions>
+    <mat-card-actions align="end">
       <app-service-sheet-pdf [value]="item"></app-service-sheet-pdf>
       <button mat-button (click)="openMap(item.customer_address)">TÉRKÉP</button>
+      <span style="flex: 1 1 auto"></span>
+      <button mat-button (click)="openServiceSheetEdit(item)" matTooltip="Módosítás">
+        <mat-icon style="color: orange">mode_edit</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
-  <!--<mat-accordion class="headers-align">
-  <mat-expansion-panel *ngFor="let item of reports | async " [expanded]="seeQRcode(item.customer_name, item.customer_address, item.customer_phone, item.did_job, item.problem_review, item.used_goods, item.price, item.day)" hideToggle="true">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ item.customer_name }}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{ item.customer_address }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <table>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/person.png">
-            <b>Név:</b> &ensp; {{ item.customer_name }}
-          </td>
-          <th rowspan="6">
-            <app-qrcode value="{{qrtext}}"></app-qrcode>
-          </th>
-          <th rowspan="6" style="width: 300px">
-            <app-map address="{{item.customer_address}}"></app-map>
-          </th>
-        </tr>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/map.png">
-            <b>Cím:</b> &ensp;{{ item.customer_address }}
-          </td>
-        </tr>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/phone.png">
-            <b>Telefonszám:</b> &ensp; {{ item.customer_phone }}
-          </td>
-        </tr>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/goal.png">
-            <b>Elvégzett munka:</b> &ensp; {{ item.problem_review }}
-          </td>
-        </tr>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/cash.png">
-            <b>Javítás ára:</b> &ensp; {{ item.price }} Ft
-          </td>
-        </tr>
-        <tr>
-          <td class="xfle">
-            <img class="imgstyle" src="/assets/images/event.png">
-            <b>Dátum:</b> &ensp; {{ item.day }}
-          </td>
-        </tr>
-      </table>
-      <app-service-sheet-pdf [value]="item"></app-service-sheet-pdf>
-    </mat-expansion-panel>
-  </mat-accordion>-->
-

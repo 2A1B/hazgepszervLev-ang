@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'app-qrcode',
   template: `
     <div style="padding-left: 20px">
-      <qr-code [value]="value" [size]="150"></qr-code>
+      <qr-code [value]="value" [size]="120"></qr-code>
     </div>
   `
 })
