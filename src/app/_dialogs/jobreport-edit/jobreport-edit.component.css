@@ -16,7 +16,7 @@
   max-height: 50px;
 }
 
-div, button {
+div {
   padding: 20px;
 }
 
@@ -29,4 +29,3 @@ div, button {
 .example-full-width {
   width: 100%;
 }
-  

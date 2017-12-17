@@ -29,8 +29,10 @@ import { QrcodeComponent} from './qrcode/qrcode.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { MapComponent } from './_dialogs/map/map.component';
 import { JobreportEditComponent } from './_dialogs/jobreport-edit/jobreport-edit.component';
+import { EditServicesheetComponent } from './_dialogs/edit-servicesheet/edit-servicesheet.component';
 
 import {
+  MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatChipsModule,
@@ -76,7 +78,8 @@ export const config = {
     HomescreenComponent,
     JobreportViewComponent,
     MapComponent,
-    JobreportEditComponent
+    JobreportEditComponent,
+    EditServicesheetComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ export const config = {
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
@@ -124,6 +128,7 @@ export const config = {
                     NewServicesheetComponent,
                     JobreportViewComponent,
                     JobreportEditComponent,
-                    MapComponent]
+                    MapComponent,
+                    EditServicesheetComponent]
 })
 export class AppModule { }

@@ -32,6 +32,7 @@ export class NewServicesheetComponent implements OnInit {
     const refi = this.db.list('servicesheets').query.ref.push();
     const date = new Date();
     this.today = date.toLocaleDateString();
-    this.itemsRef.push(new ServiceSheet(cn, ca, cp, pr, pd, ug, ar, this.today, this.jobreport.uuid));
+    const id = this.itemsRef.push(new ServiceSheet(cn, ca, cp, pr, pd, ug, ar, this.today, this.jobreport.uuid, '')).key;
+    this.itemsRef.update(id, {uuid: id});
   }
 }

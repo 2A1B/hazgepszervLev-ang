@@ -34,6 +34,10 @@
                 <mat-icon style="color: red">clear</mat-icon>
                 <span>Törlés</span>
               </button>
+              <button mat-menu-item (click)="openMap(item.customer_address)">
+                <mat-icon style="color: green">place</mat-icon>
+                <span>Térkép</span>
+              </button>
               <button mat-menu-item (click)="openNewServicesheetDialog(item)">
                 <mat-icon style="color: blue">insert_drive_file</mat-icon>
                 <span>Munkalap létrehozás</span>

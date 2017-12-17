@@ -1,43 +1,38 @@
 <form class="example-form" (submit)="editJobreport(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, hibajelenseg.value, tervezettkiszallas.value, uuid.value)">
-  <div mat-dialog-content>
-	<div class="header">
-	  <img class="img" *ngIf="jobreport.job_title=='helyszíni'" mat-list-avatar src="/assets/images/home_service.png" alt="Desc 2">
-	  <img class="img" *ngIf="jobreport.job_title=='más'" mat-list-avatar src="/assets/images/swiss_army_knife.png" alt="Desc 2">
-	  <img class="img" *ngIf="jobreport.job_title=='felmérés'" mat-list-avatar src="/assets/images/in_transit.png" alt="Desc 2">
-	  <img class="img" *ngIf="jobreport.job_title=='szerviz'" mat-list-avatar src="/assets/images/screwdriver.png" alt="Desc 2">
-	  <mat-form-field class="example-full-width">
-	    <input matInput #ugyfelneve="ngModel" name="customer_name" [(ngModel)]="jobreport.customer_name">
-	    <mat-placeholder>
-	      <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
-	    </mat-placeholder>
-	  </mat-form-field>
-	</div>
-	
+  <div mat-dialog-content style="padding-top: 0px;">
+    <h3 style="color: #fbc02d; padding-bottom: 20px">Hibajegy módosítás</h3>
+  <mat-form-field class="example-full-width">
+    <input matInput #ugyfelneve="ngModel" name="customer_name" [(ngModel)]="jobreport.customer_name">
+    <mat-placeholder>
+      <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
+    </mat-placeholder>
+  </mat-form-field>
+
 	<mat-form-field class="example-full-width" style="display:none">
 	  <input matInput #uuid="ngModel" name="uuid" [(ngModel)]="jobreport.uuid">
 	</mat-form-field>
-	
+
 	<mat-form-field class="example-full-width">
 	  <input matInput #ugyfelcime="ngModel" name="customer_address" [(ngModel)]="jobreport.customer_address">
 	  <mat-placeholder>
 	    <mat-icon class="icon-color">person_pin_circle</mat-icon> Ügyfél címe
 	  </mat-placeholder>
 	</mat-form-field>
-	
+
 	<mat-form-field class="example-full-width">
 	  <input type="tel" matInput #ugyfelszama="ngModel" name="customer_phone" [(ngModel)]="jobreport.customer_phone">
 	  <mat-placeholder>
 	    <mat-icon class="icon-color">local_phone</mat-icon> Ügyfél telefonszáma
 	  </mat-placeholder>
 	</mat-form-field>
-	
+
 	<mat-form-field class="example-full-width">
 	  <input matInput #hibajelenseg="ngModel" name="hibajelenseg" [(ngModel)]="jobreport.problem_review">
 	  <mat-placeholder>
 	    <mat-icon class="icon-color">error</mat-icon> Elvégzendő munka
 	  </mat-placeholder>
 	</mat-form-field>
-	
+
 	<mat-form-field class="example-full-width">
 	  <input matInput #tervezettkiszallas="ngModel" name="tervezettkiszallas" [(ngModel)]="jobreport.planned_delivery">
 	  <mat-placeholder>

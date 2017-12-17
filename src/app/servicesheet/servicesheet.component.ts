@@ -5,6 +5,7 @@ import {ServiceSheet} from '../_models/ServiceSheet';
 import { Title } from '@angular/platform-browser';
 import {MatDialog} from '@angular/material';
 import {MapComponent} from "../_dialogs/map/map.component";
+import {EditServicesheetComponent} from "../_dialogs/edit-servicesheet/edit-servicesheet.component";
 
 @Component({
   selector: 'app-servicesheet',
@@ -16,7 +17,7 @@ export class ServicesheetComponent implements OnInit {
   qrtext: string;
   itemsRef: AngularFireList<any>;
 
-  constructor(public db: AngularFireDatabase, private titleService: Title, public dialog: MatDialog,) {
+  constructor(public db: AngularFireDatabase, private titleService: Title, public dialog: MatDialog) {
     this.reports = db.list<ServiceSheet>('servicesheets', ref => ref.orderByChild('customer_name')).valueChanges();
     this.itemsRef = db.list('jobreports');
   }
@@ -32,6 +33,14 @@ export class ServicesheetComponent implements OnInit {
       + 'Felhasznált anyag: ' + anyag + '\n'
       + 'Javítás ára: ' + ar + '\n'
       + 'Elkészült: ' + nap;
+  }
+
+  openServiceSheetEdit(key: ServiceSheet) {
+    const _dialog = this.dialog.open(EditServicesheetComponent, {
+      data: {
+        item: key
+      }
+    });
   }
 
   openMap(address: string) {

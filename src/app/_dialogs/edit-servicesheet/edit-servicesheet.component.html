@@ -1,0 +1,63 @@
+<h1 mat-dialog-title style="color: #fbc02d">Munkalap módosítás</h1>
+<form class="example-form" (submit)="editSheet(ugyfelneve.value, ugyfelcime.value, ugyfelszama.value, munka.value, elvegzettmunka.value, anyag.value, ar.value, uuid.value)">
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelneve="ngModel" name="customer_name" [(ngModel)]="sheet.customer_name">
+      <mat-placeholder>
+        <mat-icon class="icon-color">person</mat-icon> Ügyfél neve
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="display:none">
+      <input matInput #uuid="ngModel" name="uuid" [(ngModel)]="sheet.uuid">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #ugyfelcime="ngModel" name="customer_address" [(ngModel)]="sheet.customer_address">
+      <mat-placeholder>
+        <mat-icon class="icon-color">person_pin_circle</mat-icon> Ügyfél címe
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input type="tel" matInput #ugyfelszama="ngModel" name="customer_phone" [(ngModel)]="sheet.customer_phone">
+      <mat-placeholder>
+        <mat-icon class="icon-color">local_phone</mat-icon> Ügyfél telefonszáma
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #munka="ngModel" name="problem_review" [(ngModel)]="sheet.problem_review">
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Munka megnevezése
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #elvegzettmunka="ngModel" name="did_job" [(ngModel)]="sheet.did_job">
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Elvégzett munka
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #anyag="ngModel" name="used_goods" [(ngModel)]="sheet.used_goods">
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Felhasznált anyag
+      </mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput #ar="ngModel" name="price" [(ngModel)]="sheet.price">
+      <mat-placeholder>
+        <mat-icon class="icon-color">error</mat-icon> Javítás ára
+      </mat-placeholder>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button color="primary" type="submit" (click)="dialog.close()">
+      Hozzáadás
+    </button>
+  </div>
+</form>
