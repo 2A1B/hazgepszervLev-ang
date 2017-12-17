@@ -18,18 +18,27 @@
                 <b>{{ item.planned_delivery |  date:'MMM dd'}}</b>
               </span>
             </span>
-            <button mat-icon-button matTooltip="Lezárás" (click)="updateJobReportToClosed(item.uuid)">
-              <mat-icon style="color: green">done</mat-icon>
+            <button mat-icon-button style="color: orange" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Módosítás" (click)="editJobReport(item)">
-              <mat-icon style="color: orange">mode_edit</mat-icon>
-            </button>
-            <button mat-icon-button matTooltip="Törlés" (click)="deleteJobReport(item.uuid)">
-              <mat-icon style="color: red">clear</mat-icon>
-            </button>
-            <button mat-icon-button matTooltip="Munkalap létehozás" (click)="openNewServicesheetDialog(item)">
-              <mat-icon style="color: blue">insert_drive_file</mat-icon>
-            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="updateJobReportToClosed(item.uuid)">
+                <mat-icon style="color: green">done</mat-icon>
+                <span>Lezárás</span>
+              </button>
+              <button mat-menu-item (click)="editJobReport(item)">
+                <mat-icon style="color: orange">mode_edit</mat-icon>
+                <span>Módosítás</span>
+              </button>
+              <button mat-menu-item (click)="deleteJobReport(item.uuid)">
+                <mat-icon style="color: red">clear</mat-icon>
+                <span>Törlés</span>
+              </button>
+              <button mat-menu-item (click)="openNewServicesheetDialog(item)">
+                <mat-icon style="color: blue">insert_drive_file</mat-icon>
+                <span>Munkalap létrehozás</span>
+              </button>
+            </mat-menu>
           </mat-list-item>
         </mat-list>
       </div>
@@ -52,12 +61,19 @@
                 <b>{{ item.planned_delivery |  date:'MMM dd'}}</b>
               </span>
             </span>
-            <button mat-icon-button matTooltip="Törlés" (click)="deleteJobReport(item.uuid)">
-              <mat-icon style="color: red">clear</mat-icon>
+            <button mat-icon-button style="color: orange" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Munkalap létehozás" (click)="openNewServicesheetDialog(item)">
-              <mat-icon style="color: blue">insert_drive_file</mat-icon>
-            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteJobReport(item.uuid)">
+                <mat-icon style="color: red">clear</mat-icon>
+                <span>Törlés</span>
+              </button>
+              <button mat-menu-item (click)="openNewServicesheetDialog(item)">
+                <mat-icon style="color: blue">insert_drive_file</mat-icon>
+                <span>Munkalap létrehozás</span>
+              </button>
+            </mat-menu>
           </mat-list-item>
         </mat-list>
       </div>
