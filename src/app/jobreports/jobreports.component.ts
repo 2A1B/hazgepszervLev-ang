@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {JobReport} from '../_models/JobReport';
 import {NewServicesheetComponent} from "../_dialogs/new-servicesheet/new-servicesheet.component";
 import {JobreportViewComponent} from "../_dialogs/jobreport-view/jobreport-view.component";
+import {JobreportEditComponent} from "../_dialogs/jobreport-edit/jobreport-edit.component";
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ServiceSheet } from '../_models/ServiceSheet';
@@ -30,6 +31,10 @@ export class JobreportsComponent implements OnInit {
   updateJobReportToClosed(key: string) {
     this.itemsRef.update(key, {status: 'closed'});
   }
+  
+  deleteJobReport(key: string) {
+    this.itemsRef.remove(key);
+  }
 
   openNewServicesheetDialog(key: JobReport) {
     const _dialog = this.dialog.open(NewServicesheetComponent, {
@@ -41,6 +46,14 @@ export class JobreportsComponent implements OnInit {
   
   openJobreportView(key: JobReport) {
     const _dialog = this.dialog.open(JobreportViewComponent, {
+      data: {
+        item: key
+      }
+    });
+  }
+  
+  editJobReport(key: JobReport) {
+    const _dialog = this.dialog.open(JobreportEditComponent, {
       data: {
         item: key
       }
